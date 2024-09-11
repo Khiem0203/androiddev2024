@@ -34,6 +34,6 @@ public class ForecastFragment extends Fragment {
         linearLayout.addView(dayTextView);
         linearLayout.addView(weatherIcon);
 
-        return linearLayout;
+        return inflater.inflate(R.layout.fragment_forecast, container, false);
     }
 }
