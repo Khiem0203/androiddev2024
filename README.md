@@ -12,5 +12,5 @@ Student Info
 
 * Name: Nguyen Tuan Khiem
 * ID: BI12-210
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Group ID: 16
+* Project Name: Nutrition Recipe App
