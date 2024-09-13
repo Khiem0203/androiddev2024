@@ -1,12 +1,15 @@
 package vn.edu.usth.weather;
 
 import android.os.Bundle;
-import androidx.activity.EdgeToEdge;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -15,14 +18,17 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
-        // Create a new Fragment to be placed in the activity
         ForecastFragment forecast = new ForecastFragment();
-// Add the fragment to the 'container' FrameLayout
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.container, forecast).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, forecast).commit();
+
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        HomeFragmentAdapter adapter = new HomeFragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+
         Log.i(TAG,"Create");
+
     }
     @Override
     protected void onStart() {

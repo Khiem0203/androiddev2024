@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ForecastFragment">
 
-    <!-- Container for the forecast area -->
     <LinearLayout
         android:id="@+id/forecast_container"
         android:layout_width="match_parent"
