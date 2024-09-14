@@ -10,21 +10,23 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.tabs.TabLayout;
 
 public class WeatherActivity extends AppCompatActivity {
 
     private static final String TAG = "WeatherActivity";
+    private HomeFragmentAdapter homeFragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        ForecastFragment forecast = new ForecastFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, forecast).commit();
+        WeatherAndForecastFragment weatherAndForecastFragment = new WeatherAndForecastFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, weatherAndForecastFragment).commit();
 
         ViewPager viewPager = findViewById(R.id.viewPager);
-        HomeFragmentAdapter adapter = new HomeFragmentAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
+        HomeFragmentAdapter homeFragmentAdapter = new HomeFragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(homeFragmentAdapter);
 
 
         Log.i(TAG,"Create");
