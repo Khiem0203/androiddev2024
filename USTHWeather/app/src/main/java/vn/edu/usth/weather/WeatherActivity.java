@@ -2,54 +2,65 @@ package vn.edu.usth.weather;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 
 public class WeatherActivity extends AppCompatActivity {
-
-    private static final String TAG = "WeatherActivity";
-    private HomeFragmentAdapter homeFragmentAdapter;
-
+    public static final String TAG = "Weathering";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
-        WeatherAndForecastFragment weatherAndForecastFragment = new WeatherAndForecastFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, weatherAndForecastFragment).commit();
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        Log.i(TAG, "onCreate");
 
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        HomeFragmentAdapter homeFragmentAdapter = new HomeFragmentAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(homeFragmentAdapter);
-
-
-        Log.i(TAG,"Create");
-
+        ViewPager pager = findViewById(R.id.pager);
+        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(adapter);
+        TabLayout tablayout = findViewById(R.id.tab_layout);
+        tablayout.setupWithViewPager(pager);
     }
+
     @Override
-    protected void onStart() {
+    protected void onStart()    {
         super.onStart();
-        Log.i(TAG, "Start");
+        Log.i(TAG, "onStart");
     }
+
     @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "Pause");
-    }
-    @Override
-    protected void onResume() {
+    protected void onResume()    {
         super.onResume();
-        Log.i(TAG, "Resume");
+        Log.i(TAG, "onResume");
     }
+
     @Override
-    protected void onDestroy() {
+    protected void onPause()    {
+        super.onPause();
+        Log.i(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop()    {
+        super.onStop();
+        Log.i(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy()    {
         super.onDestroy();
-        Log.i(TAG, "Destroy");
+        Log.i(TAG, "onDestroy");
     }
 }
+
