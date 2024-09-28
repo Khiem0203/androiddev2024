@@ -1,4 +1,4 @@
-package vn.edu.usth.weather;
+package vn.edu.usth.weather.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
