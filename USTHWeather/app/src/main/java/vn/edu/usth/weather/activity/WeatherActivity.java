@@ -131,6 +131,8 @@ public class WeatherActivity extends AppCompatActivity {
             protected void onPostExecute (String result){
                 Toast.makeText(WeatherActivity.this, result, Toast.LENGTH_SHORT).show();
             }
-
+        private String readStream(InputStream in) {
+            return "";
         }
+    }
 }
