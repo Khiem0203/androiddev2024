@@ -16,9 +16,8 @@ public class ForecastFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = new View(getContext());
-        v.setBackgroundColor(0x200000FF);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
+        view.setBackgroundColor(0x200000FF);
 
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -32,6 +31,9 @@ public class ForecastFragment extends Fragment {
 
         ImageView weatherIcon = new ImageView(getActivity());
         weatherIcon.setImageResource(R.drawable.cloud);
+
+        ImageView logo = view.findViewById(R.id.usth_logo);
+        logo.setImageResource(R.drawable.usth_logo);
 
         linearLayout.addView(dayTextView);
         linearLayout.addView(weatherIcon);

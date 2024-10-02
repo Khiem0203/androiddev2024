@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:layout_below="@id/play_music"
         android:layout_marginStart="110dp"
-        android:text="Extract MP3 to SD Card"/>
+        android:text="Extract MP3 to SD Card" />
 
 
 </RelativeLayout>

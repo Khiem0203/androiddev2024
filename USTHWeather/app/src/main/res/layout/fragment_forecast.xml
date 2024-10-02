@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ForecastFragment">
+    tools:context=".fragment.ForecastFragment"
+    android:background="@color/white">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -22,7 +23,6 @@
         android:layout_marginLeft = "10dp"
         android:layout_marginRight = "10dp"
         android:layout_marginBottom = "10dp"
-        android:background="@color/blue"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -40,7 +40,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Cloud"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"/>
 
@@ -63,7 +63,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_24_31"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- TUESDAY -->
@@ -80,7 +80,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -94,7 +94,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"
                 android:text="@string/Cloud"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_24_31"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- WEDNESDAY -->
@@ -120,7 +120,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Cloud"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"/>
 
@@ -144,7 +144,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_22_23"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- Thursday -->
@@ -161,7 +161,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -174,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Cloud"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"/>
 
@@ -184,7 +184,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_22_27"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- Friday -->
@@ -201,7 +201,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -214,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Cloud"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"/>
 
@@ -224,7 +224,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_22_30"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- SATURDAY -->
@@ -241,7 +241,7 @@
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingStart"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Cloud"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingStart="@dimen/paddingStart"
                 android:paddingEnd="@dimen/paddingEnd"/>
 
@@ -264,10 +264,18 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/temp_24_31"
                 android:textSize="18sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/usth_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/usth_logo"
+        android:layout_gravity="center"
+        android:alpha="0.1"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
