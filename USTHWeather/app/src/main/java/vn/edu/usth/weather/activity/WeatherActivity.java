@@ -41,9 +41,6 @@ public class WeatherActivity extends AppCompatActivity {
         pager.setAdapter(adapter);
         TabLayout tablayout = findViewById(R.id.tab_layout);
         tablayout.setupWithViewPager(pager);
-        ImageView imageView = findViewById(R.id.usth_logo);
-        new Refresh(imageView).execute("https://haitrieu.com/wp-content/uploads/2022/11/Logo-Truong-Dai-hoc-Khoa-hoc-va-Cong-nghe-Ha-Noi-VN-France-University.png");
-
 
     }
 
@@ -116,10 +113,9 @@ public class WeatherActivity extends AppCompatActivity {
 
         @Override
         protected Bitmap doInBackground(String... urls) {
-            String imageUrl = urls[0];
             Bitmap bitmap = null;
             try {
-                URL url = new URL(imageUrl);
+                URL url = new URL("https://haitrieu.com/wp-content/"+"uploads/2022/11/Logo-Truong-Dai-hoc-Khoa-hoc-va-Cong-nghe-Ha-Noi-VN-France-University.png");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 connection.setDoInput(true);
