@@ -42,5 +42,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id = "@+id/usth_logo"/>
+        android:id = "@+id/usth_logo"
+        android:alpha="0.2"
+        android:layout_gravity="center"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import vn.edu.usth.weather.activity.WeatherActivity.Refresh;
+import vn.edu.usth.weather.activity.WeatherActivity;
 
 import vn.edu.usth.weather.R;
 
 public class ForecastFragment extends Fragment {
+
+    private ImageView logoDisplay;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +42,12 @@ public class ForecastFragment extends Fragment {
         linearLayout.addView(dayTextView);
         linearLayout.addView(weatherIcon);
 
+
         return inflater.inflate(R.layout.fragment_forecast, container, false);
+
+
+
+
+
     }
 }
