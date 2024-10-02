@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import vn.edu.usth.weather.activity.WeatherActivity.Refresh;
 
 import vn.edu.usth.weather.R;
 

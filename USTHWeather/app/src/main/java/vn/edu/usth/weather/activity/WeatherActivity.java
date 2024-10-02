@@ -1,5 +1,6 @@
 package vn.edu.usth.weather.activity;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -34,13 +35,13 @@ public class WeatherActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        new Refresh().execute();
 
         ViewPager pager = findViewById(R.id.pager);
         HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
         TabLayout tablayout = findViewById(R.id.tab_layout);
         tablayout.setupWithViewPager(pager);
+
     }
 
     @Override
@@ -54,7 +55,6 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_refresh) {
-            new Refresh().execute();
             return true;
         } else if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PrefActivity.class);
@@ -98,7 +98,13 @@ public class WeatherActivity extends AppCompatActivity {
         Log.i(TAG, "onDestroy");
     }
 
-    private class Refresh extends AsyncTask<Void, Void, String> {
+    public class Refresh extends AsyncTask<String, Void, Bitmap> {
+        private ImageView imageView;
+
+        // Constructor to set the ImageView
+        public Refresh(ImageView imageView) {
+            this.imageView = imageView;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -106,33 +112,35 @@ public class WeatherActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String doInBackground(Void... voids) {
-                String result = "";
-                try {
-                    URL url = new URL("http://ict.usth.edu.vn/wp-content/" + "uploads/usth/usthlogo.png");
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setDoInput(true);
-                    connection.connect();
-                    int response = connection.getResponseCode();
-                    Log.i("USTHWeather", "The response is: " + response);
-                    InputStream is = connection.getInputStream();
-                    Bitmap bitmap = BitmapFactory.decodeStream(is);
-                    ImageView logo = (ImageView) findViewById(R.id.usth_logo);
-                    logo.setImageBitmap(bitmap);
-                    connection.disconnect();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return result;
+        protected Bitmap doInBackground(String... urls) {
+            String imageUrl = urls[0];
+            Bitmap bitmap = null;
+            try {
+                URL url = new URL(imageUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setDoInput(true);
+                connection.connect();
+                int response = connection.getResponseCode();
+                Log.i("USTHWeather", "The response is: " + response);
+                InputStream is = connection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
+                Thread.sleep(2000);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return bitmap;
+        }
 
-            @Override
-            protected void onPostExecute (String result){
-                Toast.makeText(WeatherActivity.this, result, Toast.LENGTH_SHORT).show();
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            if (result != null) {
+                Toast.makeText(WeatherActivity.this, "Logo downloaded", Toast.LENGTH_SHORT).show();
+                imageView.setImageBitmap(result); // Set the downloaded image to the ImageView
+            } else {
+                Toast.makeText(WeatherActivity.this, "Failed to download image", Toast.LENGTH_SHORT).show();
             }
-        private String readStream(InputStream in) {
-            return "";
         }
     }
 }
